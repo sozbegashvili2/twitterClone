@@ -27,6 +27,7 @@ input{
     height: 2.2rem;
     border: none;
     border-bottom: 2px solid rgb(101, 119, 134);
+    padding: 3px 7px;
 }
 input:focus {
     border: none;
