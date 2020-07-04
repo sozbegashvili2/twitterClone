@@ -59,9 +59,9 @@
                 </svg>
                 <span class="world">See what’s happening in the world right now</span>
                 <span class="join">Join Twitter today.</span>
-                <a href="sign_up.html"><button id="signup" type="button" class="btn btn-outline-primary">Sign up</button>
+                <a href="sign_up.php"><button id="signup" type="button" class="btn btn-outline-primary">Sign up</button>
                 </a>
-                <a href="login.html"><button id="login" type="button" class="btn btn-outline-primary">Log in</button>
+                <a href="login.php"><button id="login" type="button" class="btn btn-outline-primary">Log in</button>
                 </a>
             </div>
         </div>
