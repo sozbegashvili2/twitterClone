@@ -1,0 +1,59 @@
+.wrapper 
+{
+width: 70vw;
+margin: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+svg {
+    width: 4vw;
+    fill:rgba(29,161,242,1.00);
+    margin-top: 1rem;
+}
+input,label {
+    display: block;
+}
+h2 {
+    margin-bottom: 2rem;
+}
+form {
+    align-self: flex-start;
+    width: 80%;
+    margin:auto;
+}
+input{
+    width: 100%;
+    height: 2.2rem;
+    border: none;
+    border-bottom: 2px solid rgb(101, 119, 134);
+}
+input:focus {
+    border: none;
+    border-bottom: 2px solid rgba(29,161,242,1.00);
+    outline: none;
+}
+label {
+    margin: 0;
+}
+form div {
+    margin-bottom: 1rem;
+}
+button.btn {
+    width: 100%;
+    border-radius: 2rem;
+    height: 3rem;
+    margin-top: 1rem;
+    background-color: rgba(29,161,242,1.00);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+button.btn:disabled {
+    background-color: rgba(29, 161, 242,0.7);
+    color: #fff;
+}
+.forgot-signup {
+    text-align: center;
+    margin-top: 2rem;
+}
