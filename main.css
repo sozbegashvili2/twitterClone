@@ -1,0 +1,107 @@
+/* GENERAL STYLE  */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+/* STYLING LEFT SIDE  */
+.left {
+ 
+    height: 90vh;
+    background-color: rgb(113, 201, 248);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+svg.svg1 {
+    fill:rgba(29,161,242,1.00);
+    position: absolute;
+    width: 99vw;
+    top: -30vh;
+    right: -50vh;
+    height: 160vh;
+    z-index: 0;
+}
+svg.same {
+    width: 3vw;
+    fill:#fff;
+}
+.desc {
+ z-index: 1;
+}
+.dsc {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+}
+span,svg {
+    display: inline-block;
+}
+span {
+    margin-left: 1rem;
+}
+/* STYLING LEFT SIDE  */
+
+/* STYLING RIGTH SIDE  */ 
+svg.tinytwit {
+    width: 4vw;
+    margin-left: 14px;
+    margin-bottom: 20px;
+    fill: rgba(29,161,242,1.00);
+}
+.right {
+    display: flex;
+  
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+.add {
+    width: 85%;
+    margin:auto;
+ 
+}
+.right span {
+display: block;
+}
+span.world {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    font-weight: bold;
+}
+span.join {
+    font-weight: bold;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+}
+button.btn {
+    display: block;
+    margin-bottom: 0.7rem;
+    width: 90%;
+    border-radius: 1rem;
+    margin-left: 1.2rem;
+}
+#signup {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgba(29,161,242,1.00);;
+}
+a:hover {
+    text-decoration: none;
+}
+#login {
+    font-weight: bold;
+}
+/* STYLING LEFT SIDE  */
+footer  {
+    text-align: center;
+    padding-top: 20px;
+}
