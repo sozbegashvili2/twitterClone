@@ -5,10 +5,12 @@ class Router
     private $getRoutes = [];
     private $postRoutes = [];
     public $request = null;
+    public $database = null;
     public $layout = 'layout';
-    public function __construct(Request $request)
+    public function __construct(Request $request,Database $database)
     {
         $this->request = $request;
+        $this->database = $database;
     }
 
     public function get($path,$callback) {

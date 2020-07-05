@@ -11,8 +11,7 @@ class MainPageController
         return $router->renderContent('sign_up');
     }
     public function login(Router $router,Request $request) {
-        echo '<pre>';
-        var_dump($request->getBody());
-        echo '</pre>';
+         $data = $request->getBody();
+         $router->database->addUser($data);
     }
 }
