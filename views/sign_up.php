@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter. It's Whats Happening!</title>
+    <title>Register on twitter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="sign_up_style.css">
+    <link rel="stylesheet" href="css/sign_up_style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
 </header>
 <div class="evrth">
     <div class="row">
-        <form class="sup_form">
+        <form class="sup_form" method="post" action="/signup">
             <h4>
                 Name
             </h4>
@@ -49,7 +49,7 @@
                 This will not be shown publicly. Confirm your age to receive the appropriate experience
             </p>
             <input type="date" name="Birthdate">
-        </form>
+
     </div>
     <div class="row txt">
         <h3>
@@ -67,7 +67,8 @@
         </p>
 
     </div>
-    <button id="signUp">Sign Up</button>
+    <button id="signUp" type="submit">Sign Up</button>
 </div>
+</form>
 </body>
 </html>

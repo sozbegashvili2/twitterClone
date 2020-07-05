@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login on twitter/Twitter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
      <div class="wrapper">
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input id="pass" type="password" name="password">                   
+                    <input id="pass" type="password" name="password">
                 </div>
                 <button id="login" type="submit" class="btn btn-outline-primary" disabled>Log in</button>
             </form>
@@ -32,6 +32,6 @@
          <span>*</span>
          <a href="sign_up.html">Sign up for twitter</a>
      </div>
-     <script src="login-validation.js"></script>
+     <script src="js/login-validation.js"></script>
 </body>
 </html>

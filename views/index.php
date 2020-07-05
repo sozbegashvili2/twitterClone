@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter. It's Whats Happening!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
     <div class="wrapper">
         <div class="left">
             <svg viewBox="0 0 24 24" class="svg1" >
@@ -59,9 +49,9 @@
                 </svg>
                 <span class="world">See what’s happening in the world right now</span>
                 <span class="join">Join Twitter today.</span>
-                <a href="sign_up.php"><button id="signup" type="button" class="btn btn-outline-primary">Sign up</button>
+                <a href="/signup"><button id="signup" type="button" class="btn btn-outline-primary">Sign up</button>
                 </a>
-                <a href="login.php"><button id="login" type="button" class="btn btn-outline-primary">Log in</button>
+                <a href="/login"><button id="login" type="button" class="btn btn-outline-primary">Log in</button>
                 </a>
             </div>
         </div>
@@ -69,5 +59,3 @@
     <footer>
         <p>&copy; 2020 Twitter, Inc.</p>
     </footer>
-</body>
-</html>
