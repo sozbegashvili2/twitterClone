@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register on twitter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/sign_up_style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
@@ -22,11 +23,14 @@
             <h4>
                 Email
             </h4>
-            <input type="email" name="email">
+            <input type="email" name="email" id="txt_email">
+            <div id="email_response" ></div>
             <h4>
                 Username
             </h4>
-            <input type="text" name="username">
+            <input type="text" name="username" id="txt_username">
+            <!-- Response -->
+            <div id="uname_response" ></div>
             <h4>
                 Password
             </h4>
@@ -70,5 +74,59 @@
     <button id="signUp" type="submit">Sign Up</button>
 </div>
 </form>
+<script>
+    $(document).ready(function(){
+        $("#txt_username").keyup(function(){
+            var username = $(this).val().trim();
+            if(username != ''){
+                $.ajax({
+                    url: 'check.php',
+                    type: 'post',
+                    data: {username: username},
+                    success: function(response){
+                         $('#uname_response').html(response);
+                         var resp = document.getElementById('response').innerHTML;
+                         var button = document.getElementById('signUp');
+                        if (resp == 'Available.') {
+                           button.disabled = false;
+                        }
+                        else if (resp == 'Not Available.')
+                        {
+                            button.disabled = true;
+                        }
+                    }
+
+                });
+            }
+
+        });
+// ---------------------------------------------------------------------------
+        $("#txt_email").keyup(function(){
+            var email = $(this).val().trim();
+            if(email != ''){
+                $.ajax({
+                    url: 'check.php',
+                    type: 'post',
+                    data: {email: email},
+                    success: function(response){
+                        $('#email_response').html(response);
+                        var resp = document.getElementById('response').innerHTML;
+                        var button = document.getElementById('signUp');
+                        if (resp == 'Available.') {
+                            button.disabled = false;
+                        }
+                        else if (resp == 'Not Available.')
+                        {
+                            button.disabled = true;
+                        }
+                    }
+
+                });
+            }
+
+        });
+
+    });
+</script>
 </body>
 </html>

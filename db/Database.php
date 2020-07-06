@@ -1,7 +1,7 @@
 <?php
 class Database
 {
-private $pdo;
+public $pdo;
 
 public function __construct()
 {
@@ -38,4 +38,18 @@ public function addUser($data) {
     $statement->bindParam(':verified',$verified);
     $statement->execute();
 }
+
+public function check($info,$search) {
+    $query = "select count(*) as cnt from users where $search ='".$info."'";
+    $statement = $this->pdo->prepare($query);
+    $statement->execute();
+    $result = $statement->fetch();
+    $count = $result['cnt'];
+    $response = "<span id='response' style='color: green;'>Available.</span>";
+    if ($count > 0) {
+        $response = "<span id='response' style='color: red;'>Not Available.</span>";
+    }
+    echo $response;
+}
+
 }

@@ -10,7 +10,7 @@ class MainPageController
     public function renderRegister(Router $router,Request $request) {
         return $router->renderContent('sign_up');
     }
-    public function login(Router $router,Request $request) {
+    public function signup(Router $router,Request $request) {
          $data = $request->getBody();
          $router->database->addUser($data);
     }
