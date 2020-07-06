@@ -37,6 +37,7 @@ public function addUser($data) {
     $statement->bindParam(':hash',$vkey);
     $statement->bindParam(':verified',$verified);
     $statement->execute();
+    return $vkey;
 }
 
 public function check($info,$search) {
@@ -50,6 +51,32 @@ public function check($info,$search) {
         $response = "<span id='response' style='color: red;'>Not Available.</span>";
     }
     echo $response;
+}
+
+public function checkUser($data){
+    $statement = $this->pdo->prepare("SELECT * FROM users WHERE email = :email");
+    $statement->bindParam(':email',$data['email']);
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+     if (sizeof($result) > 0) {
+         $password = $data['password'];
+         if(password_verify($data['password'],$result[0]['password']) && $result[0]['verified'] == 1) {
+             $_SESSION[$result[0]['userName']] = $result[0];
+             return false;
+         }
+         else
+         {
+             $msg = 'Password is incorrect or account is not verified';
+             return $msg;
+         }
+     }
+     else
+     {
+         $msg = "User with such email doesn't exist";
+         return $msg;
+     }
+
+
 }
 
 }

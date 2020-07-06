@@ -54,8 +54,11 @@ class Router
         return ob_get_clean();
     }
 
-    public function renderContent(string $content)
+    public function renderContent(string $content,$params = [])
     {
+        foreach ($params as $key => $value) {
+            $$key = $value;
+        }
         ob_start();
         include_once __DIR__."/views/{$content}.php";
         return ob_get_clean();

@@ -12,6 +12,20 @@ class MainPageController
     }
     public function signup(Router $router,Request $request) {
          $data = $request->getBody();
-         $router->database->addUser($data);
+        $vkey = $router->database->addUser($data);
+}
+    public function login(Router $router,Request $request) {
+         $data = $request->getBody();
+        $check = $router->database->checkUser($data);
+    if(!$check) {
+        header("location:/");
+    }
+    else
+    {
+            return $router->renderContent('login',['msg' => $check]);
+    }
+    }
+    public function verification(Router $router,Request $request) {
+        return $router->renderContent('verify');
     }
 }

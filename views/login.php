@@ -1,3 +1,7 @@
+<?php
+$msg = $msg ?? false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,12 @@
             </g>
         </svg>
             <h2>Log in to Twitter</h2>
-            <form action="">
+        <?php
+        if ($msg) {
+        ?>
+         <div class="container alert alert-danger"><?php echo $msg?></div>
+         <?php  } ?>
+            <form action="/login" method="post">
                 <div class="email">
                     <label for="email">Email</label>
                     <input id="email" type="text" name="email">
