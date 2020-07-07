@@ -11,4 +11,5 @@ $router->post('/login',[MainPageController::class,'login']);
 $router->get('/signup',[MainPageController::class,'renderRegister']);
 $router->post('/signup',[MainPageController::class,'signup']);
 $router->get('/verify',[MainPageController::class,'verification']);
+$router->get('/verification',[MainPageController::class,'verify']);
 session_destroy();

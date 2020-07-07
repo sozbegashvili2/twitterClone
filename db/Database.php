@@ -75,8 +75,10 @@ public function checkUser($data){
          $msg = "User with such email doesn't exist";
          return $msg;
      }
-
-
 }
-
+public function verifyUser($vkey) {
+   $stm = $this->pdo->prepare("UPDATE users SET verified = 1 WHERE hash = :hash ");
+    $stm->bindValue(':hash',$vkey);
+    $stm->execute();
+}
 }
