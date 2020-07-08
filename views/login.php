@@ -37,9 +37,9 @@ $msg = $msg ?? false;
             </form>
      </div>
      <div class="forgot-signup">
-         <a href="#">Forgot Password?</a>
+         <a href="/reset_password">Forgot Password?</a>
          <span>*</span>
-         <a href="sign_up.html">Sign up for twitter</a>
+         <a href="/signup">Sign up for twitter</a>
      </div>
      <script src="js/login-validation.js"></script>
 </body>

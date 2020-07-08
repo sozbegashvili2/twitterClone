@@ -12,4 +12,8 @@ $router->get('/signup',[MainPageController::class,'renderRegister']);
 $router->post('/signup',[MainPageController::class,'signup']);
 $router->get('/verify',[MainPageController::class,'verification']);
 $router->get('/verification',[MainPageController::class,'verify']);
+$router->get('/reset_password',[MainPageController::class,'recoverPass']);
+$router->post('/reset_password',[MainPageController::class,'postRecover']);
+$router->get('/reset_form',[MainPageController::class,'renderReset']);
+$router->post('/reset_form',[MainPageController::class,'resetPass']);
 session_destroy();

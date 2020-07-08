@@ -23,6 +23,7 @@ try {
     user_cover VARCHAR(2048) NOT NULL,
     hash VARCHAR (200) NOT NULL,
     verified int not null,
+    token VARCHAR (300) NOT NULL,
     user_reg  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )
     ";

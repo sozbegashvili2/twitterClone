@@ -22,9 +22,10 @@ public function addUser($data) {
     $coverImg = 'images/cover.jpg';
     $hashedpass = password_hash($data['psswd'],PASSWORD_BCRYPT);
     $vkey = md5(time().$data['username']);
+    $token = md5(time().$data['email']);
     $verified = 0;
-    $statement = $this->pdo->prepare("INSERT INTO users(fullName,userName,email,password,country,gender,bday,user_image,user_cover,hash,verified)
-    VALUES (:fullname,:username,:email,:password,:country,:gender,:bday,:user_image,:user_cover,:hash,:verified)");
+    $statement = $this->pdo->prepare("INSERT INTO users(fullName,userName,email,password,country,gender,bday,user_image,user_cover,hash,verified,token)
+    VALUES (:fullname,:username,:email,:password,:country,:gender,:bday,:user_image,:user_cover,:hash,:verified,:token)");
     $statement->bindParam(':fullname',$data['full_name']);
     $statement->bindParam(':username',$data['username']);
     $statement->bindParam(':email',$data['email']);
@@ -36,15 +37,19 @@ public function addUser($data) {
     $statement->bindParam(':user_cover',$coverImg);
     $statement->bindParam(':hash',$vkey);
     $statement->bindParam(':verified',$verified);
+    $statement->bindParam(':token',$token);
     $statement->execute();
     return $vkey;
 }
-
-public function check($info,$search) {
+public function checkQuery($info,$search){
     $query = "select count(*) as cnt from users where $search ='".$info."'";
     $statement = $this->pdo->prepare($query);
     $statement->execute();
-    $result = $statement->fetch();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+public function check($info,$search) {
+    $result = $this->checkQuery($info,$search);
     $count = $result['cnt'];
     $response = "<span id='response' style='color: green;'>Available.</span>";
     if ($count > 0) {
@@ -52,12 +57,15 @@ public function check($info,$search) {
     }
     echo $response;
 }
-
-public function checkUser($data){
+public function checkEmail($data) {
     $statement = $this->pdo->prepare("SELECT * FROM users WHERE email = :email");
     $statement->bindParam(':email',$data['email']);
     $statement->execute();
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+public function checkUser($data){
+        $result = $this->checkEmail($data);
      if (sizeof($result) > 0) {
          $password = $data['password'];
          if(password_verify($data['password'],$result[0]['password']) && $result[0]['verified'] == 1) {
@@ -80,5 +88,23 @@ public function verifyUser($vkey) {
    $stm = $this->pdo->prepare("UPDATE users SET verified = 1 WHERE hash = :hash ");
     $stm->bindValue(':hash',$vkey);
     $stm->execute();
+}
+public function changePass($token,$password){
+    echo '<pre>';
+    var_dump($token,$password);
+    echo '</pre>';
+    try {
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $newtoken = md5(time().rand(100,10000));
+        $hashPassword = password_hash($password,PASSWORD_BCRYPT);
+        $query = "UPDATE users SET password = :password,token = :token WHERE token = :tkn";
+        $stm = $this->pdo->prepare($query);
+        $stm->bindValue(':password',$hashPassword);
+        $stm->bindValue(':token',$newtoken);
+        $stm->bindValue(':tkn',$token);
+        $stm->execute();
+    } catch (PDOException $e) {
+    echo $e->getMessage();
+    }
 }
 }
