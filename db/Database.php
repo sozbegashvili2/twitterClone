@@ -69,7 +69,7 @@ public function checkUser($data){
      if (sizeof($result) > 0) {
          $password = $data['password'];
          if(password_verify($data['password'],$result[0]['password']) && $result[0]['verified'] == 1) {
-             $_SESSION[$result[0]['userName']] = $result[0];
+             $_SESSION['userName'] = $result[0];
              return false;
          }
          else
